@@ -25,10 +25,10 @@ function routerConfig(router) {
 				require(['./components/ProvinceList.vue'],resolve);
 			}
 		},
-		'/hello':{
-			name:'hello',
+		'/citylist':{
+			name:'citylist',
 			component:function(resolve){
-				require(['./components/Hello.vue'],resolve);
+				require(['./components/CityList.vue'],resolve);
 			}
 		}
 	});
