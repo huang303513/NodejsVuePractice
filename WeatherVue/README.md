@@ -1,27 +1,16 @@
-# weathervue
+##Vue+VueRouter+webpack+Less+VueResource实现一个天气客户端
 
-> A Vue.js project
+###参考资料列表:
+[https://github.com/huang303513/WebBasicCommonDemos](https://github.com/huang303513/WebBasicCommonDemos)</br>
+[vue官网](http://cn.vuejs.org/v2/guide/)</br>
+###运行步骤:
+1 进入WeatherVue目录
+2 npm install安装依赖初始化项目
+3 npm run dev运行项目
+4用浏览器打开localhost:8080查看运行效果
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
+###打包运行步骤：
 npm run build
 
-# run unit tests
-npm run unit
 
-# run e2e tests
-npm run e2e
 
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

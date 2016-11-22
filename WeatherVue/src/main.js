@@ -13,7 +13,7 @@ var router = new Router({
 })
 
 routerConfig(router);
-router.start(App,'#app');
+router.start(App,'#start');
 window.router = router;
 
 

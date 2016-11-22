@@ -1,6 +1,6 @@
 <template>
   <div >
-	  <div id="app">
+	  <div id="root">
 	      <router-view keep-alive>
 	      </router-view>
 	  </div>
@@ -8,9 +8,8 @@
 </template>
 <script>
 export default {
+
 }
 </script>
-
 <style>
-
 </style>
