@@ -7,19 +7,22 @@
   </div>
 </template>
 <script>
+import citieslatlon from '../common/citieslatlon';
 export default {
 	data(){
 		return {
 			province:null,
 			city:null,
 			county:null,
+			citieslatlon:[],
 		}
 	},
 	methods:{
 
 	},
 	ready(){
-		
+		this.citieslatlon = citieslatlon;
+		//console.log(this.citieslatlon);
 	}
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="province">
       <ul>
-        <li v-for="province in provinceList" class="provinceCell" v-touch:tap="goCity">
+        <li v-for="province in provinceList" class="listCell" v-touch:tap="goCity(province.n)">
             <span>{{province.n}}</span>
         </li>
       </ul>
@@ -17,7 +17,8 @@ export default {
     }
   },
   methods:{
-     goCity(){
+     goCity(name){
+        this.$root.province = name;
        router.go({
          name:"citylist"
        })
@@ -29,19 +30,5 @@ export default {
 }
 </script>
 <style type="less" scoped>
-.provinceCell{
-  padding:0 10px;
-  -webkit-animation-name: shineRed;   
-  -webkit-animation-duration: 3s;  
-  -webkit-animation-iteration-count: infinite;
-  height: 50px;
-  line-height: 50px;
-  font-size: 18px;
-  font-weight: bold;
-}
-@-webkit-keyframes  shineRed {  
-    from { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
-    50% { -webkit-box-shadow:inset 0px 0px 2px #bbc; }  
-    to { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
-} 
+
 </style>

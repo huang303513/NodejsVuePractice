@@ -1,7 +1,7 @@
 //id:城市id  cityEn:城市英文  cityZh:城市中文  countryCode:国家代码  countryEn:国家英文  countryZh:国家中文  provinceEn:省英文  provinceEn:省中文  provinceEn:省中文  leaderEn:所属上级市英文  leaderZh:所属上级市中文  lat:纬度  lon:经度
 
 
-export let citieslatlon = [
+export default [
     { "id": "CN101010100", "cityEn": "beijing", "cityZh": "北京", "countryCode": "CN", "countryEn": "China", "countryZh": "中国", "provinceEn": "beijing", "provinceZh": "北京", "leaderEn": "beijing", "leaderZh": "北京", "lat": "39.904", "lon": "116.391" },
     { "id": "CN101010200", "cityEn": "haidian", "cityZh": "海淀", "countryCode": "CN", "countryEn": "China", "countryZh": "中国", "provinceEn": "beijing", "provinceZh": "北京", "leaderEn": "beijing", "leaderZh": "北京", "lat": "39.59", "lon": "116.17" },
     { "id": "CN101010300", "cityEn": "chaoyang", "cityZh": "朝阳", "countryCode": "CN", "countryEn": "China", "countryZh": "中国", "provinceEn": "beijing", "provinceZh": "北京", "leaderEn": "beijing", "leaderZh": "北京", "lat": "39.57", "lon": "116.29" },
