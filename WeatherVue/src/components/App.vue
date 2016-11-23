@@ -13,7 +13,7 @@ export default {
 		return {
 			province:null,
 			city:null,
-			county:null,
+			countyInfo:null,
 			citieslatlon:[],
 		}
 	},
