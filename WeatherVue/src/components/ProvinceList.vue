@@ -13,7 +13,16 @@ export default {
   },
   methods:{
       loadProvinceList(){
-        this.$http.get('http://files.heweather.com/china-city-list.json').then((response) =>{
+        // this.$http.get('http://files.heweather.com/china-city-list.json').then((response) =>{
+        //   alert("yes");
+        //   console.log(response);
+        // },(response) =>{
+        //    alert("no");
+        //   console.log(response);
+        // });
+
+
+        this.$http.get('https://free-api.heweather.com/v5/now?city=北京&key=d1295777fa904944a14751be32dd7d33').then((response) =>{
           alert("yes");
           console.log(response);
         },(response) =>{
