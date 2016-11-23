@@ -13,11 +13,12 @@ export default {
   },
   methods:{
       loadProvinceList(){
-        this.$http.jsonp('http://www.thinkpage.cn/doc/v2/cities?type=array').then((response) =>{
-          alert(response);
+        this.$http.get('http://files.heweather.com/china-city-list.json').then((response) =>{
+          alert("yes");
           console.log(response);
         },(response) =>{
-          
+           alert("no");
+          console.log(response);
         });
       }
   },
