@@ -1,6 +1,6 @@
 <template>
-  <div class="provincelist">
-    
+  <div class="hello1">
+    <h1>呵呵呵呵呵呵</h1>
   </div>
 </template>
 
@@ -8,10 +8,7 @@
 export default {
   data () {
     return {
-      province:null,
-      city:null,
-      county:null,
-      
+      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods:{
