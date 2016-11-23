@@ -49,10 +49,10 @@ export default {
         // });
 
         this.$http.get('http://api.openweathermap.org/data/2.5/weather?lat=39.904&lon=116.391&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-          alert("yes");
+          //alert("yes");
           console.log(response);
         },(response) =>{
-           alert("no");
+           //alert("no");
           console.log(response);
         });
       }

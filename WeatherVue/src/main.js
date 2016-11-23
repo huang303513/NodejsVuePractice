@@ -1,20 +1,18 @@
-import Vue from 'vue'
-import App from './components/App'
-import Router from 'vue-router'
-import './less/style.less'
-
+import Vue from 'vue';
+import App from './components/App';
+import Router from 'vue-router';
+import VueTouch from 'vue-touch';
+import './less/style.less';
 
 var VueResource = require('vue-resource');
 Vue.use(VueResource);
-
-// Vue.http.options.emulateJSON = true;
-// Vue.http.options.emulateHTTP = true;
-// Vue.http.headers.common['Access-Control-Allow-Origin'] = '*';
 
 Vue.use(Router);
 var router = new Router({
     history: false
 })
+
+Vue.use(VueTouch);
 
 routerConfig(router);
 router.start(App,'#start');
@@ -33,6 +31,12 @@ function routerConfig(router) {
 			name:'citylist',
 			component:function(resolve){
 				require(['./components/CityList.vue'],resolve);
+			}
+		},
+		'/weather':{
+			name:'weather',
+			component:function(resolve){
+				require(['./components/Weather.vue'],resolve);
 			}
 		}
 	});

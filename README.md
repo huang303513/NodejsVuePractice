@@ -1,4 +1,4 @@
-##Vue+VueRouter+webpack+Less+VueResource实现一个天气客户端
+##Vue+VueRouter+webpack+Less+VueResource+VueTouch实现一个天气客户端
 
 ###参考资料列表:
 [https://github.com/huang303513/WebBasicCommonDemos](https://github.com/huang303513/WebBasicCommonDemos)</br>

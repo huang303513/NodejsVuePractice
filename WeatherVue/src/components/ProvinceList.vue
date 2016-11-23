@@ -1,67 +1,47 @@
 <template>
-  <div class="provincelist">
-    
+  <div class="province">
+      <ul>
+        <li v-for="province in provinceList" class="provinceCell" v-touch:tap="goCity">
+            <span>{{province.n}}</span>
+        </li>
+      </ul>
   </div>
 </template>
 
 <script>
+import province from '../common/province';
 export default {
   data () {
     return {
-      province:null,
-      city:null,
-      county:null,
-      
+      provinceList:province,
     }
   },
   methods:{
-      loadProvinceList(){
-        // this.$http.get('http://files.heweather.com/china-city-list.json').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-
-        // this.$http.get('http://api.jirengu.com/weather.php').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-
-
-        // this.$http.get('http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-        // this.$http.get('http://api.openweathermap.org/data/2.5/weather?lat=39.904&lon=116.391&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-        this.$http.get('http://api.openweathermap.org/data/2.5/weather?lat=39.904&lon=116.391&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-          alert("yes");
-          console.log(response);
-        },(response) =>{
-           alert("no");
-          console.log(response);
-        });
-      }
+     goCity(){
+       router.go({
+         name:"citylist"
+       })
+     }
   },
   ready(){
-    this.loadProvinceList();
+
   }
 }
 </script>
+<style type="less" scoped>
+.provinceCell{
+  padding:0 10px;
+  -webkit-animation-name: shineRed;   
+  -webkit-animation-duration: 3s;  
+  -webkit-animation-iteration-count: infinite;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+}
+@-webkit-keyframes  shineRed {  
+    from { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
+    50% { -webkit-box-shadow:inset 0px 0px 2px #bbc; }  
+    to { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
+} 
+</style>

@@ -8,7 +8,19 @@
 </template>
 <script>
 export default {
+	data(){
+		return {
+			province:null,
+			city:null,
+			county:null,
+		}
+	},
+	methods:{
 
+	},
+	ready(){
+		
+	}
 }
 </script>
 <style>
