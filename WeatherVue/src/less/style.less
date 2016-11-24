@@ -15,3 +15,36 @@
     50% { -webkit-box-shadow:inset 0px 0px 2px #bbc; }  
     to { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
 } 
+
+.weather{
+  background: url('../assets/background.png') no-repeat;
+  position: fixed;
+  background-size: 100% 100%;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@leftMargin:40px;
+.weather span{
+  font: normal bold 1.5rem arial,sans-serif;
+  padding-left: @leftMargin;
+}
+
+.temp{
+  padding-left: @leftMargin;
+  
+}
+.temp .deg{
+  float: left;
+  line-height: 3rem;
+  font-size:  3rem;
+}
+.zero{
+  font-size: 0.6rem;
+}
+.desc{
+  font-size: 1.5rem;
+  padding-left: @leftMargin;
+  margin-top: 2.5rem;
+}
