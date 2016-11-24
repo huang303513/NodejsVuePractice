@@ -20,7 +20,7 @@ export default {
   methods:{
      goWeather(info){
      	this.$root.countyInfo = info;
-      alert("经度：" + info.lat + "维度：" + info.lon);
+      //alert("经度：" + info.lat + "维度：" + info.lon);
        router.go({
          name:"weather"
        })

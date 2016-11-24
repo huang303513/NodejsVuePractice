@@ -1,6 +1,6 @@
 <template>
-  <div class="hello1">
-    <h1>呵呵呵呵呵呵</h1>
+  <div class="weather">
+      
   </div>
 </template>
 
@@ -8,57 +8,31 @@
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      
     }
   },
   methods:{
-      loadProvinceList(){
-        // this.$http.get('http://files.heweather.com/china-city-list.json').then((response) =>{
+      loadCurrentWeather(){
+        var countyInfo = this.$root.countyInfo;
+        var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
+        // this.$http.get(url).then((response) =>{
         //   alert("yes");
         //   console.log(response);
         // },(response) =>{
         //    alert("no");
         //   console.log(response);
         // });
-
-
-        // this.$http.get('http://api.jirengu.com/weather.php').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-
-
-        // this.$http.get('http://api.openweathermap.org/data/2.5/forecast/daily?id=524901&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-        // this.$http.get('http://api.openweathermap.org/data/2.5/weather?lat=39.904&lon=116.391&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-        //   alert("yes");
-        //   console.log(response);
-        // },(response) =>{
-        //    alert("no");
-        //   console.log(response);
-        // });
-
-        this.$http.get('http://api.openweathermap.org/data/2.5/weather?lat=39.904&lon=116.391&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5').then((response) =>{
-          //alert("yes");
+        this.$http.get('http://91snoob.cn/weather.php').then((response) =>{
+          alert("yes");
           console.log(response);
         },(response) =>{
-           //alert("no");
+           alert("no");
           console.log(response);
         });
       }
   },
   ready(){
-    this.loadProvinceList();
+    this.loadCurrentWeather();
   }
 }
 </script>
