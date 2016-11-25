@@ -8,11 +8,12 @@
           <p>{{description}}</p>
           <p>{{humidity}}</p>
       </div>
-
+      <loading-comp></loading-comp>
   </div>
 </template>
 
 <script>
+import Loading from './Loading.vue'
 export default {
   data () {
     return {
@@ -22,6 +23,9 @@ export default {
       description:null,
       humidity:null,
     }
+  },
+  components:{
+    'loading-comp':Loading
   },
   methods:{
       loadCurrentWeather(){
