@@ -8,7 +8,7 @@
           <p>{{description}}</p>
           <p>{{humidity}}</p>
       </div>
-      <loading-comp></loading-comp>
+      <loading-comp ></loading-comp>
   </div>
 </template>
 
