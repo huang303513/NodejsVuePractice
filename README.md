@@ -2,6 +2,7 @@
 ###参考资料列表:
 [相关学习资料](https://github.com/huang303513/WebBasicCommonDemos)</br>
 [vue官网](http://cn.vuejs.org/v2/guide/)</br>
+![img](https://github.com/huang303513/Weather_Vue/blob/master/gif/play.gif)</br>
 ###运行步骤:
 1 进入WeatherVue目录</br>
 2 `npm install`安装依赖初始化项目</br>
