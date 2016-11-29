@@ -4,10 +4,12 @@
 	      <router-view keep-alive>
 	      </router-view>
 	  </div>
+	  <loading-comp :load-options="loadingOptions"></loading-comp>
   </div>
 </template>
 <script>
 import citieslatlon from '../common/citieslatlon';
+import Loading from './Loading.vue'
 export default {
 	data(){
 		return {
@@ -15,10 +17,14 @@ export default {
 			city:null,
 			countyInfo:null,
 			citieslatlon:[],
+			loadingOptions: null,
 		}
 	},
 	methods:{
 
+	},
+	components:{
+	  'loading-comp':Loading
 	},
 	ready(){
 		this.citieslatlon = citieslatlon;

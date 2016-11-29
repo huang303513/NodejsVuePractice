@@ -1,6 +1,6 @@
 <template>
-    <div class="wrapper" :class="{mask: loadOptions && loadOptions.mask}" transition="fade" >
-    <!-- v-show="loadOptions && loadOptions.loading"> -->
+    <div class="wrapper" :class="{mask: loadOptions && loadOptions.mask}" transition="fade" v-show="loadOptions && loadOptions.loading">
+    
 
     </div>
 </template>

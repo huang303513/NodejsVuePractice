@@ -8,12 +8,11 @@
           <p>{{description}}</p>
           <p>{{humidity}}</p>
       </div>
-      <loading-comp ></loading-comp>
   </div>
 </template>
 
 <script>
-import Loading from './Loading.vue'
+import mixin from '../libs/mixin'
 export default {
   data () {
     return {
@@ -24,18 +23,18 @@ export default {
       humidity:null,
     }
   },
-  components:{
-    'loading-comp':Loading
-  },
+  mixins:[mixin],
   methods:{
       loadCurrentWeather(){
         var countyInfo = this.$root.countyInfo;
         var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
+        this.showLoading();
         this.$http.get(url).then((response) =>{
           this.weatherInfo = response.data;
           this.operationData();
+          this.hideLoading();
         },(response) =>{
-          
+          this.hideLoading();
         });
       },
       operationData(){

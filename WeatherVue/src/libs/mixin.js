@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2016-11-23 21:48:16
+ * @Last Modified time: 2016-11-29 19:00:19
  */
 export default {
     methods: {
@@ -18,6 +18,17 @@ export default {
                 return Object.keys(obj);
             }
             return [];
+        },
+        showLoading(mask) {
+            this.$root.loadingOptions = {
+                loading: true,
+                mask: mask == undefined ? true : mask
+            }
+        },
+        hideLoading() {
+            this.$root.loadingOptions = {
+                loading: false
+            }
         }
     }
 }
