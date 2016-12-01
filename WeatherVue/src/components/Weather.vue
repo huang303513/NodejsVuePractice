@@ -1,14 +1,15 @@
 <template>
   <div class="weather">
-      <span>{{location}}</span>
-      <div class="temp" v-show="weatherInfo">
-          <div class="deg">{{temp}}</div><div class="zero">0</div>
+      <div>
+        <span>{{location}}</span>
+        <div class="temp" v-show="weatherInfo">
+            <div class="deg">{{temp}}</div><div class="zero">0</div>
+        </div>
+        <div class="desc" v-show="weatherInfo">
+            <p>{{description}}</p>
+            <p>{{humidity}}</p>
+        </div>
       </div>
-      <div class="desc" v-show="weatherInfo">
-          <p>{{description}}</p>
-          <p>{{humidity}}</p>
-      </div>
-
       <ul class="botmFilter">
         <li v-touch:tap="changeFilter(0)" :class="{current: filterType==0}">
           目前天气
