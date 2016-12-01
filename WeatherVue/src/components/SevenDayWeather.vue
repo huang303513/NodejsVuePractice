@@ -1,6 +1,6 @@
 <template>
   <div>
-      <span>{{location}}</span>
+      <span>{{location}}</span>的所发生的
       <div class="temp" v-show="weatherInfo">
           <div class="deg">{{temp}}</div><div class="zero">0</div>
       </div>
@@ -28,7 +28,7 @@ export default {
   props:['filterType'],
   watch: {
       'filterType': function(val) {
-          if (val == 0) {
+          if (val == 1) {
              this.loadCurrentWeather();
           }
       }

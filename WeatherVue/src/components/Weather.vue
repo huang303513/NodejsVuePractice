@@ -1,15 +1,7 @@
 <template>
   <div class="weather">
-      <div>
-        <span>{{location}}</span>
-        <div class="temp" v-show="weatherInfo">
-            <div class="deg">{{temp}}</div><div class="zero">0</div>
-        </div>
-        <div class="desc" v-show="weatherInfo">
-            <p>{{description}}</p>
-            <p>{{humidity}}</p>
-        </div>
-      </div>
+      <current-weather v-show='filterType==0' :filter-type="filterType"></current-weather>
+      <sevenday-weather v-show='filterType==1' :filter-type="filterType"></sevenday-weather>
       <ul class="botmFilter">
         <li v-touch:tap="changeFilter(0)" :class="{current: filterType==0}">
           目前天气
@@ -23,62 +15,42 @@
 
 <script>
 import mixin from '../libs/mixin'
+import currentWeather from './CurrentWeather.vue';
+import sevendayWeather from './SevenDayWeather.vue';
 export default {
   data () {
     return {
-      location:"",
-      weatherInfo:null,
-      temp:null,
-      description:null,
-      humidity:null,
-      filterType:0,
+      filterType:null,
     }
   },
   mixins:[mixin],
+  components:{
+    'current-weather':currentWeather,
+    'sevenday-weather':sevendayWeather,
+  },
   methods:{
-      loadCurrentWeather(){
-        var countyInfo = this.$root.countyInfo;
-        var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
-        this.showLoading();
-        this.$http.get(url).then((response) =>{
-          this.weatherInfo = response.data;
-          this.operationData();
-          this.hideLoading();
-        },(response) =>{
-          this.hideLoading();
-        });
-      },
-      operationData(){
-        this.temp = Math.ceil(this.weatherInfo.main.temp - 273.15);
-        this.description = this.weatherInfo.weather[0].description;
-        this.humidity = "湿度" + this.weatherInfo.main.humidity + "%" + " 风力" + Math.ceil(this.weatherInfo.wind.speed) + "级";
-      },
       changeFilter(type){
         if (this.filterType == type) {
           return;
         }
         this.filterType = type;
-
       }
   },
   route: {
     data() {
-      this.location = this.$root.countyInfo.cityZh;
-      this.weatherInfo = null;
       this.setHeaderTitle("天气");
       this.setRightAction({
             value:"刷新",
-            callback: function () {
-                this.loadCurrentWeather();
+            callback: function () {    
             }
         },this);
-      this.loadCurrentWeather();
     }
   },
   detached(){
        this.clearRightAction();
   },
   ready(){
+    this.filterType = 0;
   }
 }
 </script>
