@@ -130,7 +130,35 @@
     box-sizing: border-box
 }
 
+/*===========================底部导航栏*/
+.flex{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: flex;
+}
 
+.flex-box(@flex:1){
+  -webkit-box-flex: @flex;
+  -moz-box-flex: @flex;
+  -webkit-flex: @flex;
+  flex: @flex;
+}
 
+.botmFilter{
+  background:rgba(41,51,64,.90);height:2.5rem;position:fixed;left:0; right:0;bottom:0;z-index:960;.flex;
+  li{
+    .flex-box;
+    text-align:center;
+    color:#fff;
+    font-size:1.5rem;
+    line-height: 2.5rem;
+    font-weight: bold;
+  }
+}
+
+.current{
+  background: red;
+}
 
 

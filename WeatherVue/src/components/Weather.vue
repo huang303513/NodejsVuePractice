@@ -8,6 +8,15 @@
           <p>{{description}}</p>
           <p>{{humidity}}</p>
       </div>
+
+      <ul class="botmFilter">
+        <li v-touch:tap="changeFilter(0)" :class="{current: filterType==0}">
+          目前天气
+        </li>
+        <li v-touch:tap="changeFilter(1)" :class="{current: filterType==1}">
+          7天天气
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -21,6 +30,7 @@ export default {
       temp:null,
       description:null,
       humidity:null,
+      filterType:0,
     }
   },
   mixins:[mixin],
@@ -32,7 +42,7 @@ export default {
         this.$http.get(url).then((response) =>{
           this.weatherInfo = response.data;
           this.operationData();
-          //this.hideLoading();
+          this.hideLoading();
         },(response) =>{
           this.hideLoading();
         });
@@ -42,6 +52,13 @@ export default {
         this.description = this.weatherInfo.weather[0].description;
         this.humidity = "湿度" + this.weatherInfo.main.humidity + "%" + " 风力" + Math.ceil(this.weatherInfo.wind.speed) + "级";
       },
+      changeFilter(type){
+        if (this.filterType == type) {
+          return;
+        }
+        this.filterType = type;
+
+      }
   },
   route: {
     data() {
