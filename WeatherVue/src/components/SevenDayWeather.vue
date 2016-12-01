@@ -1,13 +1,13 @@
 <template>
   <div>
       <span>{{location}}</span>的所发生的
-      <div class="temp" v-show="weatherInfo">
+      <!-- <div class="temp" v-show="weatherInfo">
           <div class="deg">{{temp}}</div><div class="zero">0</div>
       </div>
       <div class="desc" v-show="weatherInfo">
           <p>{{description}}</p>
           <p>{{humidity}}</p>
-      </div>
+      </div> -->
   </div>
 </template>
 
@@ -29,23 +29,24 @@ export default {
   watch: {
         'filterType': function(val) {
             if (val == 1 && this.weatherInfo == null) {
-               this.loadCurrentWeather();
+               this.loadSevenDayWeather();
             }
         },
         'refreshType':function(val){
             if (val == 1) {
-               this.loadCurrentWeather();
+               this.loadSevenDayWeather();
             }
         }
   },
   methods:{
-      loadCurrentWeather(){
+      loadSevenDayWeather(){
         var countyInfo = this.$root.countyInfo;
-        var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
+        var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
         this.showLoading();
         this.$http.get(url).then((response) =>{
-          this.weatherInfo = response.data;
-          this.operationData();
+          // this.weatherInfo = response.data;
+          // this.operationData();
+          console.log(response.data);
           this.hideLoading();
         },(response) =>{
           this.hideLoading();

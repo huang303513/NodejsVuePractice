@@ -28,7 +28,7 @@ export default {
   props:['filterType','refreshType'],
   watch: {
       'filterType': function(val) {
-          if (val == 0 && this.weatherInfo == null) {
+          if (val == 0) {
              this.loadCurrentWeather();
           }
       },
@@ -40,6 +40,7 @@ export default {
   },
   methods:{
       loadCurrentWeather(){
+        this.location = this.$root.countyInfo.cityZh;
         var countyInfo = this.$root.countyInfo;
         var url = "http://api.openweathermap.org/data/2.5/weather?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
         this.showLoading();
@@ -61,8 +62,8 @@ export default {
   //      this.clearRightAction();
   // },
   ready(){
-    this.location = this.$root.countyInfo.cityZh;
-    this.weatherInfo = null;
+    // this.location = this.$root.countyInfo.cityZh;
+    // this.weatherInfo = null;
   }
 }
 </script>

@@ -31,9 +31,6 @@ export default {
   },
   methods:{
       changeFilter(type){
-        if (this.filterType == type) {
-          return;
-        }
         this.filterType = type;
       },
       changeRefreshType(){
@@ -49,6 +46,8 @@ export default {
               this.changeRefreshType();
             }
         },this);
+      //alert("heh");
+      this.filterType = null;
       this.filterType = 0;
     }
   },
