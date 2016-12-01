@@ -25,9 +25,14 @@ export default {
     }
   },
   mixins:[mixin],
-  props:['filterType'],
+  props:['filterType','refreshType'],
   watch: {
       'filterType': function(val) {
+          if (val == 0 && this.weatherInfo == null) {
+             this.loadCurrentWeather();
+          }
+      },
+      'refreshType':function(val){
           if (val == 0) {
              this.loadCurrentWeather();
           }
@@ -58,7 +63,6 @@ export default {
   ready(){
     this.location = this.$root.countyInfo.cityZh;
     this.weatherInfo = null;
-    // this.loadCurrentWeather();
   }
 }
 </script>

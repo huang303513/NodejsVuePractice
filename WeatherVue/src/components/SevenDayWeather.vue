@@ -25,13 +25,18 @@ export default {
     }
   },
   mixins:[mixin],
-  props:['filterType'],
+  props:['filterType','refreshType'],
   watch: {
-      'filterType': function(val) {
-          if (val == 1) {
-             this.loadCurrentWeather();
-          }
-      }
+        'filterType': function(val) {
+            if (val == 1 && this.weatherInfo == null) {
+               this.loadCurrentWeather();
+            }
+        },
+        'refreshType':function(val){
+            if (val == 1) {
+               this.loadCurrentWeather();
+            }
+        }
   },
   methods:{
       loadCurrentWeather(){
