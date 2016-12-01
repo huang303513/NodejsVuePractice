@@ -48,6 +48,12 @@ export default {
       this.location = this.$root.countyInfo.cityZh;
       this.weatherInfo = null;
       this.setHeaderTitle("天气");
+      this.setRightAction({
+            value:"刷新",
+            callback: function () {
+                this.loadCurrentWeather();
+            }
+        },this);
       this.loadCurrentWeather();
     }
   },

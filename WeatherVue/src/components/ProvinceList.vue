@@ -36,10 +36,10 @@ export default {
             back: {
                 tagname: 'back',
                 callback: function () {
-                   {
-                      history.back();
-                  }
+                    history.back();
                 }
+            },
+            right: {
             }
         }, this);
     },
