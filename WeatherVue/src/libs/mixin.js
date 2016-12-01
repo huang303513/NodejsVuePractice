@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2016-12-01 12:00:07
+ * @Last Modified time: 2016-12-01 12:34:37
  */
 export default {
     methods: {
@@ -46,6 +46,9 @@ export default {
                 }
                 this.$root.options.right = right;
             }
+        },
+        clearRightAction(){
+            this.$root.options.right = null;
         },
         setHeaderTitle(title) {
             this.$root.options.title = title;

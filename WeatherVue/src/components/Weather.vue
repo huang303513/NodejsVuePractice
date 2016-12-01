@@ -57,6 +57,9 @@ export default {
       this.loadCurrentWeather();
     }
   },
+  detached(){
+       this.clearRightAction();
+  },
   ready(){
   }
 }
