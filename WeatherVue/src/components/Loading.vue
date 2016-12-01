@@ -268,52 +268,6 @@
 
 </script>
 <style lang="less" scoped>
-    .wrapper {
-        position: absolute;
-        top:0px;
-        left:0px;
-        right:0px;
-        bottom: 0px;
-        z-index: 9999;
-    }
 
-    .fade-transition {
-        transition: background .3s ease;
-        overflow: hidden;
-        opacity:1;
-    }
-
-    .mask {
-        background:rgba(0,0,0,.5);
-        transition: background .3s ease;        
-        padding-top: 30px;
-    }
-    .loading-box2{
-        background:clear;
-        position: fixed;
-        left:50%;
-        top:50%;
-        margin-left:-56px;
-        margin-top: -56px; 
-        width:100%;
-    }
-    .loading-layer2{
-        background-color: #ffffff;
-        width: 112px;
-        height: 27px;
-        padding-top: 85px;
-        border-radius: 7px;
-        z-index:10000;
-        color: #666;
-        font-size: 12px;
-        text-align: center;
-    }
-    .loading-layer2-before{
-        position: absolute;
-        width: 72px;
-        height: 72px;
-        top: 10px;
-        left: 20px;
-    }
 
 </style>

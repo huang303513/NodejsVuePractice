@@ -1,6 +1,7 @@
 @import "define";
 @import "mask";
 
+/*=======================================两个列表组件*/
 .listCell{
   padding:0 1rem;
   -webkit-animation-name: shineRed;   
@@ -17,18 +18,16 @@
     to { -webkit-box-shadow:inset 0px 0px 1px #bbb; }  
 } 
 
-/*Weather组件样式*/
+/*==================================================Weather组件样式*/
 .weather{
   background: url('../assets/background.png') no-repeat;
   background-size: 100% 100%;
 }
-
 @leftMargin:40px;
 .weather span{
   font: normal bold 1.5rem arial,sans-serif;
   padding-left: @leftMargin;
 }
-
 .temp{
   padding-left: @leftMargin;
   
@@ -46,6 +45,91 @@
   padding-left: @leftMargin;
   margin-top: 2.5rem;
 }
+
+/*=======================================Loading组件*/
+.wrapper {
+    position: absolute;
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom: 0px;
+    z-index: 9999;
+}
+
+.fade-transition {
+    transition: background .3s ease;
+    overflow: hidden;
+    opacity:1;
+}
+
+.mask {
+    background:rgba(0,0,0,.5);
+    transition: background .3s ease;        
+    padding-top: 30px;
+}
+.loading-box2{
+    background:clear;
+    position: fixed;
+    left:50%;
+    top:50%;
+    margin-left:-56px;
+    margin-top: -56px; 
+    width:100%;
+}
+.loading-layer2{
+    background-color: #ffffff;
+    width: 112px;
+    height: 27px;
+    padding-top: 85px;
+    border-radius: 7px;
+    z-index:10000;
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+}
+.loading-layer2-before{
+    position: absolute;
+    width: 72px;
+    height: 72px;
+    top: 10px;
+    left: 20px;
+}
+
+/*=======================================Header组件*/
+.cm-header {
+    top              : 0;
+    height           : 44px;
+    line-height      : 44px;
+    text-align       : center;
+    background-color : #099fde;
+    color            : #fff;
+    z-index          : 960
+}
+.cm-header-icon:active,.cm-header-btn:active {
+    background-color : #077cad
+}
+.cm-header-icon {
+    width      : 44px;
+    height     : 44px;
+    display    : inline-block;
+    text-align : center
+}
+.cm-header-btn {
+    padding : 0 10px
+}
+.icon-back::before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    vertical-align: middle;
+    border-left: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    box-sizing: border-box
+}
+
 
 
 
