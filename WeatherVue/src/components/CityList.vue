@@ -40,6 +40,7 @@ export default {
   route: {
   	data() {
   		this.getCityList();
+      this.setHeaderTitle("城市");
   	}
   },
   ready(){

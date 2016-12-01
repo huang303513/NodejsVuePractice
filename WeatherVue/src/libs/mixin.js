@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2016-11-29 19:00:19
+ * @Last Modified time: 2016-12-01 11:30:25
  */
 export default {
     methods: {
@@ -29,6 +29,19 @@ export default {
             this.$root.loadingOptions = {
                 loading: false
             }
-        }
+        },
+        setHeader (options, ctx) {
+            if (this.$root) {
+                this.$root.options = options;
+                if (ctx) {
+                    this.$root.options.ctx = ctx;
+                }
+                document.title = options.title;
+            }
+        },
+
+        setHeaderTitle(title) {
+            this.$root.options.title = title;
+        },
     }
 }

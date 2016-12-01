@@ -35,6 +35,7 @@ export default {
   route: {
   	data() {
   		this.getCityList();
+      this.setHeaderTitle("县");
   	}
   },
   ready(){

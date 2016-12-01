@@ -47,6 +47,7 @@ export default {
     data() {
       this.location = this.$root.countyInfo.cityZh;
       this.weatherInfo = null;
+      this.setHeaderTitle("天气");
       this.loadCurrentWeather();
     }
   },

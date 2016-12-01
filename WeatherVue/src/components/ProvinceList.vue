@@ -10,12 +10,14 @@
 
 <script>
 import province from '../common/province';
+import mixin from '../libs/mixin';
 export default {
   data () {
     return {
       provinceList:province,
     }
   },
+  mixins:[mixin],
   methods:{
      goCity(name){
         this.$root.province = name;
@@ -26,6 +28,21 @@ export default {
   },
   ready(){
 
+  },
+  route:{
+    data(transition) {
+        this.setHeader({
+            title: '省份',
+            back: {
+                tagname: 'back',
+                callback: function () {
+                   {
+                      history.back();
+                  }
+                }
+            }
+        }, this);
+    },
   }
 }
 </script>
