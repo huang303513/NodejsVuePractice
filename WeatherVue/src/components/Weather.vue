@@ -32,7 +32,7 @@ export default {
         this.$http.get(url).then((response) =>{
           this.weatherInfo = response.data;
           this.operationData();
-          this.hideLoading();
+          //this.hideLoading();
         },(response) =>{
           this.hideLoading();
         });
