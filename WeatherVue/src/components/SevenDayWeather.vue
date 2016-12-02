@@ -25,14 +25,16 @@ export default {
     }
   },
   mixins:[mixin],
-  props:['filterType','refreshType'],
+  props:['filterType'],
+  events:{
+    refresh:function(data){
+       if (data == this.filterType) {
+          this.loadSevenDayWeather();
+       }
+    }
+  },
   watch: {
         'filterType': function(val) {
-            if (val == 1 && this.weatherInfo == null) {
-               this.loadSevenDayWeather();
-            }
-        },
-        'refreshType':function(val){
             if (val == 1) {
                this.loadSevenDayWeather();
             }
@@ -40,6 +42,8 @@ export default {
   },
   methods:{
       loadSevenDayWeather(){
+        this.location = this.$root.countyInfo.cityZh;
+        this.weatherInfo = null;
         var countyInfo = this.$root.countyInfo;
         var url = "http://api.openweathermap.org/data/2.5/forecast?lat=" + countyInfo.lat + "&lon=" + countyInfo.lon + "&lang=zh_cn&appid=613b47c5a51043bd451b4c924f240fb5";
         this.showLoading();
@@ -58,13 +62,8 @@ export default {
         this.humidity = "湿度" + this.weatherInfo.main.humidity + "%" + " 风力" + Math.ceil(this.weatherInfo.wind.speed) + "级";
       },
   },
-  // detached(){
-  //      this.clearRightAction();
-  // },
   ready(){
-    this.location = this.$root.countyInfo.cityZh;
-    this.weatherInfo = null;
-    // this.loadCurrentWeather();
+
   }
 }
 </script>

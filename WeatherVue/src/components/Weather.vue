@@ -1,7 +1,7 @@
 <template>
   <div class="weather">
-      <current-weather v-show='filterType==0' :filter-type="filterType" :refresh-type="refreshType"></current-weather>
-      <sevenday-weather v-show='filterType==1' :filter-type="filterType" :refresh-type="refreshType"></sevenday-weather>
+      <current-weather v-show='filterType==0' :filter-type="filterType"></current-weather>
+      <sevenday-weather v-show='filterType==1' :filter-type="filterType"></sevenday-weather>
       <ul class="botmFilter">
         <li v-touch:tap="changeFilter(0)" :class="{current: filterType==0}">
           目前天气
@@ -33,9 +33,9 @@ export default {
       changeFilter(type){
         this.filterType = type;
       },
-      changeRefreshType(){
-        this.refreshType = this.filterType;
-      }
+      doRefresh(){
+        this.$broadcast('refresh',this.filterType);
+      },
   },
   route: {
     data() {
@@ -43,17 +43,17 @@ export default {
       this.setRightAction({
             value:"刷新",
             callback: function () {   
-              this.changeRefreshType();
+              this.doRefresh();
             }
         },this);
-      //alert("heh");
-      this.filterType = null;
       this.filterType = 0;
     }
   },
 
   detached(){
-       this.clearRightAction();
+      //这里做清理工作，不然再次进入就不能更新数据
+      this.filterType = null;
+      this.clearRightAction();
   },
   ready(){
     
