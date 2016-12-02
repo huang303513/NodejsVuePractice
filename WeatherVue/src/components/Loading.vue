@@ -64,13 +64,6 @@
                     self.drawCircle(ctx, start, end);
                 }, 45);
             },
-            // drawImage:function(ctx){
-            //     var beauty = new Image();  
-            //     beauty.src = "https://avatars0.githubusercontent.com/u/4247822?v=3&u=208d95608bed62820bcc97d3065957fb609a8b58&s=400";
-            //     if (beauty.complete) {
-            //         ctx.drawImage(beauty, 30, 30,250,250);
-            //     }
-            // },
             show: function() {
                 if (this.$el.querySelector('canvas')) {
                 this.drawInteval = this.draw(this.$el.querySelector('.loading-layer2-before'));
@@ -81,8 +74,6 @@
                     clearInterval(this.drawInteval);
                     this.drawInteval = null;
                 }
-                // this.loadOptions.mask = false;
-                // this.loadOptions.loading = false;
             }
         }
     }
