@@ -81,8 +81,8 @@
                     clearInterval(this.drawInteval);
                     this.drawInteval = null;
                 }
-                this.loadOptions.mask = false;
-                this.loadOptions.loading = false;
+                // this.loadOptions.mask = false;
+                // this.loadOptions.loading = false;
             }
         }
     }

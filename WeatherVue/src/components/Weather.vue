@@ -1,7 +1,9 @@
 <template>
   <div class="weather">
-      <current-weather v-show='filterType==0' :filter-type="filterType"></current-weather>
-      <sevenday-weather v-show='filterType==1' :filter-type="filterType"></sevenday-weather>
+      <div >
+        <current-weather v-show='filterType==0' :filter-type="filterType"></current-weather>
+        <sevenday-weather v-show='filterType==1' :filter-type="filterType"></sevenday-weather>
+      </div>
       <ul class="botmFilter">
         <li v-touch:tap="changeFilter(0)" :class="{current: filterType==0}">
           目前天气
@@ -21,7 +23,6 @@ export default {
   data () {
     return {
       filterType:null,
-      refreshType:null,
     }
   },
   mixins:[mixin],

@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2016-12-01 12:34:37
+ * @Last Modified time: 2016-12-02 19:23:32
  */
 export default {
     methods: {
@@ -22,12 +22,13 @@ export default {
         showLoading(mask) {
             this.$root.loadingOptions = {
                 loading: true,
-                mask: mask == undefined ? true : mask
+                mask: true
             }
         },
         hideLoading() {
             this.$root.loadingOptions = {
-                loading: false
+                loading: false,
+                mask:false,
             }
         },
         setHeader (options, ctx) {

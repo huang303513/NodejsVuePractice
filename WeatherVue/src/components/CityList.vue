@@ -34,7 +34,7 @@ export default {
      		return item.leaderZh;
      	});
      	this.cityList = this.distinct(cityNames);
-     	console.log(citys);
+     	//console.log(citys);
      }
   },
   route: {
