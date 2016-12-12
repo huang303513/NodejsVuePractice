@@ -8,6 +8,9 @@
 [http://cn.vuejs.org/v2/guide/](http://cn.vuejs.org/v2/guide/)</br>
 [开发一个插件 (for vue.js) 并发布](https://gold.xitu.io/entry/5846978a128fe1006c59db9f)</br>
 [vue-router源码分析-整体流程](https://gold.xitu.io/post/584040e1ac502e006cbedb23)</br>
+[剖析Vue原理&实现双向绑定MVVM](https://segmentfault.com/a/1190000006599500)</br>
+[利用JavaScript数据绑定实现一个简单的MVVM库](https://segmentfault.com/a/1190000004847657)</br>
+[vue-cli#2.0webpack配置分析](https://gold.xitu.io/post/584e48b2ac502e006c74a120)</br>
 ###项目结构说明：
 ![img](https://github.com/huang303513/Weather_Vue/blob/master/gif/info.png)</br>
 ###演示：
