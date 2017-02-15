@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2017-02-15 12:31:22
+ * @Last Modified time: 2017-02-15 15:52:49
  */
 export default {
     methods: {
@@ -31,30 +31,27 @@ export default {
                 mask:false,
             }
         },
-        setHeader (options, ctx) {
+        setHeader (option, ctx) {
             //alert(this);
             if (this.$root) {
-                //alert(options.title);
-                this.$root.options = options;
-                if (ctx) {
-                    this.$root.options.ctx = ctx;
-                }
-                document.title = options.title;
+                //alert(option.title);
+                this.$root.option = option;
+                document.title = option.title;
             }
         },
         setRightAction (right, ctx) {
-            if (this.$root && this.$root.options) {
+            if (this.$root && this.$root.option) {
                 if (ctx) {
-                    this.$root.options.ctx = ctx;
+                    this.$root.option.ctx = ctx;
                 }
-                this.$root.options.right = right;
+                this.$root.option.right = right;
             }
         },
         clearRightAction(){
-            this.$root.options.right = null;
+            this.$root.option.right = null;
         },
         setHeaderTitle(title) {
-            this.$root.options.title = title;
+            this.$root.option.title = title;
         },
     }
 }

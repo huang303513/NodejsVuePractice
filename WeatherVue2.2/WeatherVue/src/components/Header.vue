@@ -1,12 +1,12 @@
 <template>
     <div>
         <div class="cm-header">
-            <span class=" cm-header-icon fl" @click="backAction">
+            <span class=" cm-header-icon fl"  v-on:click="backAction">
               <i class="icon-back"></i>
             </span>
-            <span class=" cm-header-btn fr" v-show="options&&options.right" @click="rightAction" v-text="options&&options.right && options.right.value">
+            <span class=" cm-header-btn fr" v-show="option&&option.right" @click="rightAction" v-text="option&&option.right && option.right.value">
             </span>
-            <h1 class="cm-page-title" v-text="options&&options.title">
+            <h1 class="cm-page-title" v-text="option&&option.title">
             </h1>
         </div>
     </div>
@@ -16,22 +16,39 @@
     export default {
         data() {
             return {
-                
+                option:{}
             }
+        },
+        watch:{
+            '$route' (to,from){
+                //alert("hehe");
+                this.fetcheData();
+            },
+        },
+        mounted(){
+            this.fetcheData();    
         },
         methods: {
             backAction() {
-                if (this.options && this.options.back) {
-                    this.options.back.callback.call(this.options.ctx);
+                if (this.option && this.option.back) {
+                    this.option.back.callback.call(this.option.ctx);
                 }
+                alert('yey');
+                // history.back();
             },
             rightAction() {
-                if (this.options && this.options.right) {
-                    this.options.right.callback.call(this.options.ctx);
+                if (this.option && this.option.right) {
+                    this.option.right.callback.call(this.option.ctx);
                 }
+            },
+            fetcheData(){
+                this.option = this.$root.option;
+                //alert(this.options.title);
+                
             }
         },
-        props:['options'],
+        
+
     }
 
 </script>

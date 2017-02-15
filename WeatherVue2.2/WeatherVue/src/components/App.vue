@@ -1,7 +1,8 @@
 <template>
 	<div >
+	<header-comp></header-comp>
 		<div id="root">
-			<header-comp v-bind:options="options"></header-comp>
+			
 			<keep-alive>
 				<router-view class="view">
 				</router-view>
@@ -16,7 +17,7 @@ import Header from './Header.vue';
 export default {
 	data(){
 		return {
-			options:{},
+			option:{},
 			province:{},
 			city:{},
 			countyInfo:{},
@@ -27,7 +28,7 @@ export default {
 	components:{
 	  'loading-comp':Loading,
 	  'header-comp':Header,
-	},
+	}
 }
 </script>
 <style>

@@ -34,15 +34,17 @@ export default {
                     history.back();
                 }
             },
-            right: {
-            }
-        }, this);
-     },
+            right: null
+        },this);
+     }
   },
   beforeRouteEnter (to, from, next) {
       next(vm => {
         vm.fetchData();
       });
+  },
+  created(){
+    this.fetchData();
   }
 }
 </script>

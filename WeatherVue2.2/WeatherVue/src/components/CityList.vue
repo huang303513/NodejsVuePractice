@@ -43,8 +43,19 @@ export default {
   beforeRouteEnter (to, from, next) {
       next(vm => {
             vm.getCityList();
+            //alert("heh");
             vm.setHeaderTitle("城市");
-      });
+        // vm.setHeader({
+        //     title: '城市',
+        //     back: {
+        //         tagname: 'back',
+        //         callback: function () {
+        //             history.back();
+        //         }
+        //     },
+        //     right: null
+        // },vm);
+       });
   }
 }
 </script>
