@@ -1,7 +1,7 @@
 <template>
   <div class="city">
       <ul>
-        <li v-for="name in cityList" class="listCell" v-on:tap="goCounty(name)">
+        <li v-for="name in cityList" class="listCell" v-on:click="goCounty(name)">
             <span>{{name}}</span>
         </li>
       </ul>
@@ -10,6 +10,7 @@
 
 <script>
 import mixin from '../libs/mixin'
+import citieslatlon from '../common/citieslatlon';
 export default {
 	mixins:[mixin],
   data () {
@@ -26,7 +27,9 @@ export default {
      },
      getCityList(){
      	var province = this.$root.province;
-     	var citys = this.$root.citieslatlon.filter(function(item,index){
+      this.$root.citieslatlon = citieslatlon;
+      //alert(this.$root.citieslatlon);
+     	var citys =citieslatlon.filter(function(item,index){
      		return item.provinceZh === province;
      	});
 

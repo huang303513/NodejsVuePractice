@@ -1,7 +1,7 @@
 <template>
   <div class="city">
       <ul>
-        <li v-for="countyInfo in countyList" class="listCell" v-touch:tap="goWeather(countyInfo)">
+        <li v-for="countyInfo in countyList" class="listCell" v-on:click="goWeather(countyInfo)">
             <span>{{countyInfo.cityZh}}</span>
         </li>
       </ul>
@@ -34,8 +34,8 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
       next(vm => {
-          this.getCityList();
-          this.setHeaderTitle("县");
+          vm.getCityList();
+          vm.setHeaderTitle("县");
       });
   }
 }

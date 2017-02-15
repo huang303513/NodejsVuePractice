@@ -1,7 +1,7 @@
 <template>
 	<div >
 		<div id="root">
-			<header-comp :options="options"></header-comp>
+			<header-comp v-bind:options="options"></header-comp>
 			<keep-alive>
 				<router-view class="view">
 				</router-view>
@@ -11,7 +11,6 @@
 	</div>
 </template>
 <script>
-import citieslatlon from '../common/citieslatlon';
 import Loading from './Loading.vue';
 import Header from './Header.vue';
 export default {
@@ -25,16 +24,10 @@ export default {
 			loadingOptions: {},
 		}
 	},
-	methods:{
-
-	},
 	components:{
 	  'loading-comp':Loading,
 	  'header-comp':Header,
 	},
-    created(){
-        this.citieslatlon = citieslatlon;
-    }
 }
 </script>
 <style>

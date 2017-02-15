@@ -2,7 +2,7 @@
  * @Author: huangchengdu
  * @Date:   2016-11-23 21:38:24
  * @Last Modified by:   huangchengdu
- * @Last Modified time: 2017-02-15 12:06:31
+ * @Last Modified time: 2017-02-15 12:31:22
  */
 export default {
     methods: {
@@ -32,9 +32,9 @@ export default {
             }
         },
         setHeader (options, ctx) {
-            alert(this);
+            //alert(this);
             if (this.$root) {
-                alert(options.title);
+                //alert(options.title);
                 this.$root.options = options;
                 if (ctx) {
                     this.$root.options.ctx = ctx;
