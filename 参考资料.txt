@@ -1,0 +1,5 @@
+https://gold.xitu.io/post/584e48b2ac502e006c74a120
+
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+cnpm install --global vue-cli
+vue init webpack lessproject
