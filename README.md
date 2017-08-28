@@ -27,10 +27,19 @@
 1 进入WeatherVue目录</br>
 2 `npm install`安装依赖初始化项目</br>
 3 `npm run dev`运行项目</br>
-4用浏览器打开`localhost:8080`查看运行效果</br>
-### 打包运行步骤：
+4 用浏览器打开`localhost:8080`查看运行效果</br>
+5 打包运行,`npm run build`。
 
-`npm run build`
+### 项目结构说明:
+
+-![img](https://github.com/huang303513/Node.jsAndVue/blob/master/gif/info.png)</br>
+
+### 演示:
+
+-![img](https://github.com/huang303513/Node.jsAndVue/blob/master/gif/play.gif)</br>
+
+
+
 
 
 
