@@ -142,23 +142,33 @@ proto.z = 40;
 console.log(obj5.x, obj5.y, obj5.z);
 //=============================================================
 //Object.getPrototypeOf方法用于读取一个对象的原型对象。
-function Rectangle() {
-}
+function Rectangle() {}
 const rec = new Rectangle();
 console.log(Object.getPrototypeOf(rec) === Rectangle.prototype);
 Object.setPrototypeOf(rec, Object.prototype);
 console.log(Object.getPrototypeOf(rec) === Rectangle.prototype);
 //=============================================================
 //super关键字总是指向对象的原型
-
+const proto1 = {
+    foo: 'hello'
+};
+const obj6 = {
+    find() {
+        return super.foo;
+    }
+}
+Object.setPrototypeOf(obj6, proto1);
+console.log(obj6.find());
 //=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
-//=============================================================
+//ES2017 引入了跟Object.keys配套的Object.values和Object.entries，作为遍历一个对象的补充手段，供for...of循环使用。
+let { keys, values, entries } = Object;
+let obj7 = { a: 1, b: 2, c: 3 };
+for (let key of keys(obj7)) {
+    console.log(key);
+}
+for (let value of values(obj7)) {
+    console.log(value);
+}
+for (let [key, value] of entries(obj7)) {
+    console.log([key, value]);
+}
