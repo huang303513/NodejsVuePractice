@@ -1,0 +1,14 @@
+SET NAMES utf8;
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `comments`;
+CREATE TABLE `comments` (
+  `_id` INT UNSIGNED AUTO_INCREMENT,
+  `author` varchar(255) NOT NULL DEFAULT '' COMMENT '用户信息',
+  `postId` int(11) NOT NULL COMMENT '文章id',
+  `content` TEXT NOT NULL COMMENT '评论内容',
+  `created_at` varchar(30) NOT NULL COMMENT '评论时间',
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
