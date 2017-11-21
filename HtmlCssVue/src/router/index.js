@@ -18,9 +18,9 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-    alert('heh' + JSON.stringify(to));
+    //alert('heh' + JSON.stringify(to));
+    console.log(JSON.stringify(to));
     next();
 });
-
 window.router = router;
 export default router;

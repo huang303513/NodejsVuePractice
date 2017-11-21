@@ -1,0 +1,100 @@
+/*less定义*/
+
+@blue: #19a0f0;
+@bluetrans: rgba(0, 154, 220, 0.95);
+@lightblue: #64bef0;
+@modelblue: #9ae1ff;
+@red: #ff4646;
+@del: #ff5b45;
+@pink: #fe6a60;
+@orage: #ff9913;
+@price: #ff6913;
+@yellow: #fbd46c;
+@pinkyellow: #fff8e6;
+@trainannounline: #f3d499;
+@trainannounbg: #fff7dc;
+@green: #2fc047;
+@dark: #000;
+@paybox: rgba(40, 56, 71, 0.95);
+@tit1: #222;
+@tit2: #666;
+@tit3: #b2b2b2;
+@txt1: #999;
+@txt2: #ccc;
+@white: #fff;
+@pinkgrey: #dbdbdb;
+@activebg: #e2e2e2;
+@grey: #e5e5e5;
+@lightgrey: #f4f4f4;
+.border-line-grey {
+    border-style: solid;
+    border-image: url('data:image/gif;base64,R0lGODlhBQAFAIAAAODg4P///yH5BAAHAP8ALAAAAAAFAAUAAAIHhB9pGatnCgA7') 2
+        stretch;
+    border-width: 0;
+}
+
+.border-line-light {
+    border-style: solid;
+    border-image: url('data:image/gif;base64,R0lGODlhBQAFAIAAAOzs7P///yH5BAAHAP8ALAAAAAAFAAUAAAIHhB9pGatnCgA7') 2
+        stretch;
+    border-width: 0;
+}
+
+.border-line-yellow {
+    border-style: solid;
+    border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAK0lEQVQImWP8fGXmfwYGhv8MCMDI8PnKzH9IAgyfr8z8x8SABWAVZMRmJgD24A+BBToq2AAAAABJRU5ErkJggg==')
+        2 stretch;
+    border-width: 0;
+}
+
+.border-line-blue {
+    border-style: solid;
+    border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAAXNSR0IArs4c6QAAACBJREFUCB1jDNr9/D8DOkAXBPGZ0BWB+FgFGdG1g1QCABPkC9OqOb3sAAAAAElFTkSuQmCC)
+        2 stretch;
+    border-width: 0;
+}
+
+.icon-train {
+    background-image: url('//pic.c-ctrip.com/train/h5/train/train-icon_v171030.png');
+    background-repeat: no-repeat;
+    background-size: 10rem;
+}
+
+.icon-qiangpiao {
+    background-image: url('//pic.c-ctrip.com/train/h5/train/train-qp_v171030.png');
+    background-repeat: no-repeat;
+    background-size: 4.5rem;
+}
+
+.icon-index {
+    background-image: url('//pic.c-ctrip.com/train/h5/train/train-index-jb.png');
+    background-repeat: no-repeat;
+    background-size: 4rem;
+}
+
+.pseudo {
+    position: absolute;
+    content: '';
+}
+
+.disido {
+    display: inline-block;
+    vertical-align: middle;
+    content: '';
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-box(@flex: 1) {
+    flex: @flex;
+}
+
+.rotating(@rotate: 45deg) {
+    transform: rotate(@rotate);
+}
+
+.border-radius(@radius: 4px) {
+    border-radius: @radius;
+}
