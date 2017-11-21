@@ -1,34 +1,41 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div>
+    <section class="train-index">
+      <ul class="train-selform">
+        <li class="train-station">
+          <dd class="from" v-text="fromStation" :class="{exchange:isExchangeStation}"></dd>
+          <dd class="to" v-text="toStation" :class="{exchange:isExchangeStation}"></dd>
+          <dt @click="exchangeStation()" :style="{transform:'rotate(' + exchangeTimes * 360 +'deg)',
+                        webkitTransform:'rotate(' + exchangeTimes * 360 +'deg)'}">
+            <i class="icon-change"></i>
+          </dt>
+        </li>
+        <li></li>
+        <li></li>
+      </ul>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      isExchangeStation: false,
+      exchangeTimes: 0,
+      fromStation:"北京",
+      toStation:"上海",
+    };
+  },
+  methods: {
+    exchangeStation() {
+      this.isExchangeStation = !this.isExchangeStation;
+      this.exchangeTimes += 1;
+      [this.toStation,this.fromStation] = [this.fromStation,this.toStation];
+      console.log(this.fromStation,this.toStation);
     }
   }
-}
+};
 </script>
 <style scoped lang="less">
 

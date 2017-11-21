@@ -1,0 +1,67 @@
+@import 'define';
+.train-index {
+    padding: .5rem 1rem;
+}
+
+.train-selform {
+    background: @white;
+    li {
+        line-height: 2.75rem;
+        height: 2.75rem;
+        border-bottom-width: 0;
+    }
+    .train-station {
+        font-size: 1.1rem;
+        overflow: hidden;
+        position: relative; // background-color: green;
+        dd {
+            width: 38%;
+            height: 2.7rem;
+            padding: 0 .25rem;
+            position: absolute;
+            transition: all .5s ease-out;
+        }
+        .to {
+            text-align: right;
+            right: 0;
+        }
+        .to.exchange {
+            transform: translate3d(-142.5%, 0, 0);//为啥是142.5，如何计算出来，此处不解。
+            text-align: left;
+        }
+        .from.exchange {
+            transform: translate3d(142.5%, 0, 0);
+            text-align: right;
+        }
+        dt {
+            width: 14%;
+            height: 2.75rem;
+            position: absolute;
+            top: 0px;
+            left: 43%;
+            .rotating(0deg);
+            transition: all .3s ease;
+            .icon-change {
+                width: 2rem;
+                height: 2rem;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                margin: -1rem 0 0 -1rem;
+                &::after {
+                    width: 1.4rem;
+                    height: 1.4rem;
+                    .pseudo; // position: absolute;
+                    // content: '';
+                    left: 50%;
+                    top: 50%;
+                    margin: -.7rem 0 0 -.7rem;
+                    .icon-index; // background-image: url('//pic.c-ctrip.com/train/h5/train/train-index-jb.png');
+                    // background-repeat: no-repeat;
+                    // background-size: 4rem;
+                    background-position: -2rem 0
+                }
+            }
+        }
+    }
+}
