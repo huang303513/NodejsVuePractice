@@ -84,7 +84,13 @@ export default {
       this.isExchangeStation = !this.isExchangeStation;
       this.exchangeTimes += 1;
       [this.toStation, this.fromStation] = [this.fromStation, this.toStation];
-      console.log(this.fromStation, this.toStation);
+      let rect;
+      if (this.isExchangeStation) {
+          rect = document.getElementsByClassName("from")[0].getBoundingClientRect();
+      } else {
+          rect = document.getElementsByClassName("to")[0].getBoundingClientRect();
+      }
+      console.log(this.fromStation, this.toStation,JSON.stringify(rect));
     }
   }
 };
