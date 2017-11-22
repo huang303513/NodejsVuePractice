@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="indev-view">
     <section class="train-index">
       <ul class="train-selform">
         <li class="train-station">
@@ -31,6 +31,31 @@
         <button class="g_btn_s">查询</button>
       </div>
     </section>
+    <ul class="train-list">
+      <li>
+        <i class="icon-eurail"></i>
+        国际火车票
+      </li>
+    </ul>
+    <ul class="train-index-bnav">
+      <li>
+        <i class="icon-qiangpiao"></i>
+        <em class="tag-chunyun">暑假</em>
+        抢票
+      </li>
+      <li>
+        <i class="icon-seat"></i>
+        在线选座
+      </li>
+      <li>
+        <i class="icon-status"></i>
+        身份免核验
+      </li>
+      <li>
+        <i class="icon-order"></i>
+        我的订单
+      </li>
+    </ul>
   </div>
 </template>
 
