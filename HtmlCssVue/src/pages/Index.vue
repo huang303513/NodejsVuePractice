@@ -10,9 +10,26 @@
             <i class="icon-change"></i>
           </dt>
         </li>
-        <li></li>
-        <li></li>
+        <li class="train-time">
+          <dd>
+             <em>11月23日</em>
+              <span>明天</span>
+          </dd>
+        </li>
+        <li class="train-type">
+          <div class="train-type-item" @click="chooseStudentTicket = !chooseStudentTicket">
+            <span>学生票</span>
+            <i :class="['train-type-checkbox', (isChooseStudentTicket ? 'train-type-checkbox-selected' : 'train-type-checkbox-unselected')]"></i>
+          </div>
+          <div class="train-type-item" @click="chooseHighTrain = !chooseHighTrain;">
+            <span>高铁动车</span>
+            <i :class="['train-type-checkbox', (isChooseHighTrain ? 'train-type-checkbox-selected' : 'train-type-checkbox-unselected')]"></i>
+          </div>
+        </li>
       </ul>
+      <div class="train-index-btnbox">
+        <button class="g_btn_s">查询</button>
+      </div>
     </section>
   </div>
 </template>
@@ -23,16 +40,26 @@ export default {
     return {
       isExchangeStation: false,
       exchangeTimes: 0,
-      fromStation:"北京",
-      toStation:"上海",
+      fromStation: "北京",
+      toStation: "上海",
+      chooseHighTrain: false,
+      chooseStudentTicket: false
     };
+  },
+  computed: {
+    isChooseHighTrain() {
+      return this.chooseHighTrain;
+    },
+    isChooseStudentTicket() {
+      return this.chooseStudentTicket;
+    }
   },
   methods: {
     exchangeStation() {
       this.isExchangeStation = !this.isExchangeStation;
       this.exchangeTimes += 1;
-      [this.toStation,this.fromStation] = [this.fromStation,this.toStation];
-      console.log(this.fromStation,this.toStation);
+      [this.toStation, this.fromStation] = [this.fromStation, this.toStation];
+      console.log(this.fromStation, this.toStation);
     }
   }
 };
