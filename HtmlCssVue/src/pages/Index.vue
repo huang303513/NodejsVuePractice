@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import mixin from "../lib/mixin.js";
 export default {
   data() {
     return {
@@ -70,6 +71,14 @@ export default {
       chooseHighTrain: false,
       chooseStudentTicket: false
     };
+  },
+  mixins:[mixin],
+  mounted(){
+    var self = this;
+    self.showLoading();
+    setTimeout(function() {
+      self.hiddenLoading()
+    },4000);
   },
   computed: {
     isChooseHighTrain() {
@@ -90,6 +99,7 @@ export default {
       } else {
           rect = document.getElementsByClassName("to")[0].getBoundingClientRect();
       }
+      //alert(JSON.stringify(this.$root.loadingOptions));
       console.log(this.fromStation, this.toStation,JSON.stringify(rect));
     }
   }
