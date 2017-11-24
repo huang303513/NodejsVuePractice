@@ -12,8 +12,8 @@
         </li>
         <li class="train-time">
           <dd>
-             <em>11月23日</em>
-              <span>明天</span>
+             <em v-text="departMonthDay"></em>
+              <span v-text="dayInfo"></span>
           </dd>
         </li>
         <li class="train-type">
@@ -61,6 +61,7 @@
 
 <script>
 import mixin from "../lib/mixin.js";
+import { cUtil } from "../common/cUtil";
 export default {
   data() {
     return {
@@ -72,13 +73,13 @@ export default {
       chooseStudentTicket: false
     };
   },
-  mixins:[mixin],
-  mounted(){
+  mixins: [mixin],
+  mounted() {
     var self = this;
     self.showLoading();
     setTimeout(function() {
-      self.hiddenLoading()
-    },4000);
+      self.hiddenLoading();
+    }, 4000);
   },
   computed: {
     isChooseHighTrain() {
@@ -86,6 +87,21 @@ export default {
     },
     isChooseStudentTicket() {
       return this.chooseStudentTicket;
+    },
+    dayInfo() {
+      if (this.selectDate) {
+        return cUtil.getDayInfo(this.selectDate);
+      }
+    },
+    departMonthDay() {
+      if (this.selectDate) {
+        return cUtil.getMonthDayStr(this.selectDate);
+      }
+    },
+    selectDate() {
+      if (this.$root.trainQuery) {
+        return cUtil.parseDateStr(this.$root.trainQuery.date);
+      }
     }
   },
   methods: {
@@ -95,12 +111,14 @@ export default {
       [this.toStation, this.fromStation] = [this.fromStation, this.toStation];
       let rect;
       if (this.isExchangeStation) {
-          rect = document.getElementsByClassName("from")[0].getBoundingClientRect();
+        rect = document
+          .getElementsByClassName("from")[0]
+          .getBoundingClientRect();
       } else {
-          rect = document.getElementsByClassName("to")[0].getBoundingClientRect();
+        rect = document.getElementsByClassName("to")[0].getBoundingClientRect();
       }
       //alert(JSON.stringify(this.$root.loadingOptions));
-      console.log(this.fromStation, this.toStation,JSON.stringify(rect));
+      console.log(this.fromStation, this.toStation, JSON.stringify(rect));
     }
   }
 };
