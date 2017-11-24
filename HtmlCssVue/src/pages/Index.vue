@@ -1,5 +1,11 @@
 <template>
-  <div class="indev-view">
+  <div>
+    <div class="indev-view" v-show="show">
+      <calendar-comp :show="show" :select-date="selectDate"
+                       v-on:calendar-event="calendarEvent">
+        </calendar-comp>
+    </div>
+  <div class="indev-view" v-show="!show">
     <section class="train-index">
       <ul class="train-selform">
         <li class="train-station">
@@ -10,7 +16,7 @@
             <i class="icon-change"></i>
           </dt>
         </li>
-        <li class="train-time">
+        <li class="train-time" @click="chooseDepartDate()">
           <dd>
              <em v-text="departMonthDay"></em>
               <span v-text="dayInfo"></span>
@@ -57,10 +63,12 @@
       </li>
     </ul>
   </div>
+  </div>
 </template>
 
 <script>
 import mixin from "../lib/mixin.js";
+import Calendar from "../components/Calendar.vue";
 import { cUtil } from "../common/cUtil";
 export default {
   data() {
@@ -69,11 +77,15 @@ export default {
       exchangeTimes: 0,
       fromStation: "北京",
       toStation: "上海",
+      show: false,
       chooseHighTrain: false,
       chooseStudentTicket: false
     };
   },
   mixins: [mixin],
+  components: {
+    "calendar-comp": Calendar
+  },
   mounted() {
     var self = this;
     self.showLoading();
@@ -105,6 +117,22 @@ export default {
     }
   },
   methods: {
+    initPage(from) {
+          this.setHeader({
+              title: '携程火车票',
+              back: {
+                  tagname: 'back',
+                  callback: function () {
+                      if (this.show) {
+                          this.show = false;
+                      } else {
+                      }
+                  }
+              },
+              right: '',
+              page: 'index'
+          }, this);
+    },
     exchangeStation() {
       this.isExchangeStation = !this.isExchangeStation;
       this.exchangeTimes += 1;
@@ -119,8 +147,24 @@ export default {
       }
       //alert(JSON.stringify(this.$root.loadingOptions));
       console.log(this.fromStation, this.toStation, JSON.stringify(rect));
+    },
+    chooseDepartDate() {
+      this.show = true;
+    },
+    calendarEvent(date) {
+      this.show = false;
     }
-  }
+  },
+  watch: {
+    show: function(val) {
+      this.setHeaderTitle(val ? "选择出发日期" : "国内火车票");
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+      next(vm=>{
+          vm.initPage(from);
+      });
+  },
 };
 </script>
 <style scoped lang="less">

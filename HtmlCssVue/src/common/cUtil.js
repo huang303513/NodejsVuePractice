@@ -47,7 +47,6 @@ let customUtil = {
                 //month = year.getMonth()+1; //注意此处月份要加1，使用日期API
             year = year.getFullYear()
         }
-        //return new Date(year,month,0).getDate();
         return [
             31,
             this.isLeapYear(year) ? 29 : 28,
@@ -61,7 +60,7 @@ let customUtil = {
             31,
             30,
             31,
-        ][month]
+        ][month];
     },
     //平年瑞年
     isLeapYear(year) {
