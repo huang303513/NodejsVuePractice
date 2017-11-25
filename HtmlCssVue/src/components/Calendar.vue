@@ -3,7 +3,7 @@
         <ul class="cui_cldweek">
             <p class="tip_top">当前车票预售期为30天，您可以预约抢票，开售自动抢</p>
         </ul>
-        <ul class="cui_cldweek" style="top: 85px;">
+        <ul class="cui_cldweek">
             <li v-for="week in weekDayArr" v-text="week">
             </li>
         </ul>
@@ -13,24 +13,14 @@
                 </h1>
                 <ul class="cui_cld_daybox">
                     <li v-for="(day, index) in month.days"
-                        :class="{'cui_calendar_item cui_cld_day_havetxt': day,
-                        'cui_invalid':!day,
+                        :class="{'cui_cld_day_havetxt': day,
                         'cui_cld_daycrt': selectDateStr == (day && day.dateStr),
                         'cui_cld_daypass': day && !day.chooseAble
                         }"
                         :key="index"
                         @click.stop="clickDate(day)"
                     >
-                        <!-- <em v-text="day && day.title"></em> -->
-                        <template v-if="day && (day.desc || (selectDateStr == day.dateStr))">
-                            <em v-text="day &&day.desc?day.desc:day.title"></em>
-                        </template>
-                        <template v-else>
-                            <em v-text="day && day.title"></em>
-                            <i v-if="day && (day.desc || (selectDateStr == day.dateStr))"
-                               v-text="selectDateStr == day.dateStr? '出发' : day.desc ">
-                            </i>
-                        </template>
+                        <em v-if="day && day.title" v-text="(day && day.desc)?day.desc:day.title"></em>
                         <i class="prejl" v-if="day&&day.preJL&&day.chooseAble">预约</i>
                     </li>
                 </ul>
