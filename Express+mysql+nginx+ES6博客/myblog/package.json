@@ -7,8 +7,8 @@
         "start": "cross-env NODE_ENV=production pm2 start index.js --name 'newblog' -f",
         "pro": "cross-env NODE_ENV=production node index.js --node-args='--harmony' --name 'newblog' -f",
         "dev": "cross-env NODE_ENV=development node index.js --node-args='--harmony' --name 'newblog' -f",
-        "test": "mocha --harmony test",
-        "testdev": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
+        "test": "cross-env NODE_ENV=development mocha --harmony test",
+        "testdev": "cross-env NODE_ENV=development node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
     },
     "author": "huangchengdu",
     "license": "ISC",
