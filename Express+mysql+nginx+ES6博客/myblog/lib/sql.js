@@ -1,18 +1,14 @@
 let mysql = require('mysql');
-let config = require('config-lite');
+let prdConfig = require('../config/production.js');
+let devConfig = require('../config/default.js');
 
-let productionConf = require('../config/production');
-if (!config) {
-    config = productionConf;
+let config = {};
+if (process.env.NODE_ENV == 'development') {
+    config = devConfig;
+} else if (process.env.NODE_ENV == 'production') {
+    config = prdConfig;
 }
-let connection = mysql.createConnection(config.dbConfig);
-connection.connect(function(err) {
-    if (err) {
-        console.error('===============error connecting: ' + err.stack);
-        throw new Error("链接数据库失败");
-    }
-    console.log('================connected as id ' + connection.threadId);
-});
+let pool = mysql.createPool(config.dbConfig);
 /**
  * sql, SqlParams  参数只可能是一个或者两个
  * @return {[type]} [description]
@@ -20,15 +16,24 @@ connection.connect(function(err) {
 module.exports.mysqlQuery = function() {
     return new Promise((resolve, reject) => {
         try {
-            connection.query(...arguments, function(err, result, fields) {
+            var tempAguements = arguments;
+            pool.getConnection(function(err, connection) {
                 if (err) {
-                    reject({ err, result });
+                    reject({ err: err, result: "failure" });
                 } else {
-                    resolve({ err, result });
+                    connection.query(...tempAguements, function(err, result, fields) {
+                        if (err) {
+                            reject({ err, result });
+                        } else {
+                            resolve({ err, result });
+                        }
+                        connection.release();
+                    });
                 }
+
             });
         } catch (e) {
-            reject(e, null);
+            reject({ err: e, result: "failure" });
         } finally {
 
         }

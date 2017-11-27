@@ -1,37 +1,36 @@
 {
-  "name": "myblog",
-  "version": "1.0.0",
-  "description": "a blog with node.js",
-  "main": "index.js",
-  "scripts": {
-    "start": "NODE_ENV=production pm2 start index.js --node-args='--harmony' --name 'newblog' -f",
-    "pro": "NODE_ENV=production node index.js --node-args='--harmony' --name 'newblog' -f",
-    "dev": "NODE_ENV=default node index.js --node-args='--harmony' --name 'newblog' -f",
-    "test": "mocha --harmony test",
-    "testdev": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
-  },
-  "author": "huangchengdu",
-  "license": "ISC",
-  "dependencies": {
-    "config-lite": "1.5.0",
-    "connect-flash": "0.1.1",
-    "connect-mssql": "^1.5.0",
-    "ejs": "2.5.5",
-    "express": "4.14.0",
-    "express-formidable": "1.0.0",
-    "express-mysql-session": "^1.2.2",
-    "express-session": "1.14.2",
-    "express-winston": "2.1.2",
-    "marked": "0.3.6",
-    "mocha": "3.2.0",
-    "moment": "2.17.1",
-    "mysql": "latest",
-    "sha1": "1.1.1",
-    "supertest": "2.0.1",
-    "winston": "2.3.0"
-  },
-  "devDependencies": {
-    "cross-env": "^5.0.1",
-    "istanbul": "0.4.5"
-  }
+    "name": "myblog",
+    "version": "1.0.0",
+    "description": "a blog with node.js",
+    "main": "index.js",
+    "scripts": {
+        "start": "cross-env NODE_ENV=production pm2 start index.js --name 'newblog' -f",
+        "pro": "cross-env NODE_ENV=production node index.js --node-args='--harmony' --name 'newblog' -f",
+        "dev": "cross-env NODE_ENV=development node index.js --node-args='--harmony' --name 'newblog' -f",
+        "test": "mocha --harmony test",
+        "testdev": "node --harmony ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha"
+    },
+    "author": "huangchengdu",
+    "license": "ISC",
+    "dependencies": {
+        "connect-flash": "0.1.1",
+        "connect-mssql": "^1.5.0",
+        "ejs": "2.5.5",
+        "express": "4.14.0",
+        "express-formidable": "1.0.0",
+        "express-mysql-session": "^1.2.2",
+        "express-session": "1.14.2",
+        "express-winston": "2.1.2",
+        "marked": "0.3.6",
+        "mocha": "3.2.0",
+        "moment": "2.17.1",
+        "mysql": "latest",
+        "sha1": "1.1.1",
+        "supertest": "2.0.1",
+        "winston": "2.3.0"
+    },
+    "devDependencies": {
+        "cross-env": "^5.1.1",
+        "istanbul": "0.4.5"
+    }
 }

@@ -13,6 +13,7 @@ let devConfig = {
         maxAge: 2592000
     },
     dbConfig: {
+        connectionLimit : 30,
         host: '47.96.6.227',
         user: 'huang303513',
         password: 'huang303513',

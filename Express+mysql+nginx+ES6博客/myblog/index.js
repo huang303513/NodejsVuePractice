@@ -10,7 +10,8 @@ var express = require('express');
 var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 var flash = require('connect-flash');
-var config = require('config-lite');
+var prdConfig = require('./config/production.js');
+var devConfig = require('./config/default.js');
 var routes = require('./routes');
 var pkg = require('./package');
 var winston = require('winston');
@@ -18,11 +19,12 @@ var expressWinston = require('express-winston');
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
-var productionConf = require('./config/production');
 
-//在云主机上的时候。通过pm2启动的时候。config是nil。所以需要手动指定
-if (!config) {
-    config = productionConf;
+var config = {};
+if (process.env.NODE_ENV == 'development') {
+    config = devConfig;
+} else if (process.env.NODE_ENV == 'production') {
+    config = prdConfig;
 }
 
 var app = express();
@@ -40,9 +42,10 @@ app.set('views', path.join(__dirname, 'views'));
 // 设置模板引擎为 ejs
 app.set('view engine', 'ejs');
 // 设置静态文件目录,如果是生产环境，就不用设置了，通过nginx设置。
-app.use(express.static(path.join(__dirname, 'public')));
-
 if (config.devEnv) {
+    app.use(express.static(path.join(__dirname, 'public')));
+}
+if (true || config.devEnv) {
     const NODE_ENV = process.env.NODE_ENV;
     console.log(NODE_ENV + "TEST");
     console.log('process.env==========', JSON.stringify(config) + "hehehe");
@@ -57,7 +60,7 @@ app.use(session({
         maxAge: config.session.maxAge
     },
     store: new MySQLStore(config.dbConfig),
-    connectionLimit: 1,
+    connectionLimit: 10,
     expiration: 86400000,
     resave: true,
     saveUninitialized: true
@@ -65,7 +68,7 @@ app.use(session({
 
 // flash 中间价，用来显示通知
 app.use(flash());
-//云主机nginx图片存储目录
+
 let uploadDir = "/usr/local/webserver/nginx/static/img";
 if (config.devEnv) {
     uploadDir = path.join(__dirname, 'public/img');
