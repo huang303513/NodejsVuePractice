@@ -2,11 +2,13 @@ import { cUtil } from '../common/cUtil';
 
 let mixin = {
     methods: {
+        //第一次进入页面的时候调用，可以用于初始化数据
         beforeCreate() {
             this.initInfo();
         },
         initInfo() {
             this.$root.trainQuery = this.getTrainQuery();
+            console.log("进入新页面");
         },
         getTrainQuery(key) {
             if (!this.$root.trainQuery) {

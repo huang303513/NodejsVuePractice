@@ -20,8 +20,12 @@
     props: ['options'],
     methods: {
       backAction() {
-        if (this.options && this.options.back) {
+        if (this.options && this.options.back && this.options.back.callback) {
+          console.log("返回1");
           this.options.back.callback.call(this.options.ctx);
+        }else if(this.options){
+          console.log("返回2");
+          window.history.back();
         }
       },
       rightAction() {

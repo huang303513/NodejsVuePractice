@@ -13,6 +13,14 @@ const router = new Router({
         },
         meta: { name: "index" },
         hash: "index"
+    }, {
+        path: '/pop',
+        name: 'Pop',
+        component: function(resolve) {
+            require(['@/pages/Pop.vue'], resolve);
+        },
+        meta: { name: "Pop" },
+        hash: "Pop"
     }],
     mode: 'hash'
 });

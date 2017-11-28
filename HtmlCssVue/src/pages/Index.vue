@@ -11,9 +11,9 @@
             <dd class="from" v-text="fromStation" :class="{exchange:isExchangeStation}"></dd>
             <dd class="to" v-text="toStation" :class="{exchange:isExchangeStation}"></dd>
             <dt @click="exchangeStation()" :style="{transform:'rotate(' + exchangeTimes * 360 +'deg)',
-                          webkitTransform:'rotate(' + exchangeTimes * 360 +'deg)'}">
-              <i class="icon-change"></i>
-            </dt>
+                              webkitTransform:'rotate(' + exchangeTimes * 360 +'deg)'}">
+                  <i class="icon-change"></i>
+                </dt>
           </li>
           <li class="train-time" @click="chooseDepartDate()">
             <dd>
@@ -52,7 +52,7 @@
         <li>
           <i class="icon-status"></i> 身份免核验
         </li>
-        <li>
+        <li @click="jumpPop">
           <i class="icon-order"></i> 我的订单
         </li>
       </ul>
@@ -82,13 +82,7 @@
     components: {
       "calendar-comp": Calendar
     },
-    mounted() {
-      var self = this;
-      self.showLoading();
-      setTimeout(function() {
-        self.hiddenLoading();
-      }, 4000);
-    },
+    mounted() {},
     computed: {
       isChooseHighTrain() {
         return this.chooseHighTrain;
@@ -114,19 +108,26 @@
     },
     methods: {
       initPage(from) {
-        this.setHeader({
+        var self = this;
+        if (from && (from.path == '/')) {
+          self.showLoading();
+          setTimeout(function() {
+            self.hiddenLoading();
+          }, 4000);
+          console.log("from" + JSON.stringify(from));
+          //自定义返回事件
+        }
+        self.setHeader({
           title: '携程火车票',
           back: {
             tagname: 'back',
             callback: function() {
-              if (this.show) {
-                this.show = false;
-              } else {}
+              if (self.show) {
+                self.show = false;
+              }
             }
-          },
-          right: '',
-          page: 'index'
-        }, this);
+          }
+        }, self);
       },
       exchangeStation() {
         this.isExchangeStation = !this.isExchangeStation;
@@ -148,6 +149,9 @@
       },
       calendarEvent(date) {
         this.show = false;
+      },
+      jumpPop() {
+        router.push('/pop');
       }
     },
     watch: {
@@ -155,6 +159,7 @@
         this.setHeaderTitle(val ? "选择出发日期" : "国内火车票");
       }
     },
+    created() {},
     beforeRouteEnter(to, from, next) {
       next(vm => {
         vm.initPage(from);
