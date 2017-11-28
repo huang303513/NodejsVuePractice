@@ -3,8 +3,8 @@ let path = require('path');
 let sha1 = require('sha1');
 let express = require('express');
 let router = express.Router();
-const Vue = require('vue');
-const render = require('vue-server-renderer').createRenderer()
+let Vue = require('vue');
+let render = require('vue-server-renderer').createRenderer();
 
 router.get('/', (req, res) => {
     const app = new Vue({
@@ -51,5 +51,29 @@ router.get('/test1', (req, res) => {
       `);
     });
 });
+
+// let serverRender = require('vue-server-renderer').createRenderer({ template: require('fs').readFileSync('./views/vue/2.html', 'utf-8') });
+// router.get('/test2', (req, res) => {
+
+//     let context = {
+//         title: 'context读取'
+//     };
+
+//     let app = new Vue({
+//         data: {
+//             url: req.url
+//         },
+//         template: `<div>访问的 URL 是12fasd： {{ url }}</div>`
+//             // template: fs.readFileSync('./views/vue/1.html', 'utf-8')
+//     });
+
+//     serverRender.renderToString(app, context, (err, html) => {
+//         if (err) {
+//             res.status(500).end('Internal Server Error')
+//             return
+//         }
+//         res.end(html);
+//     });
+// });
 
 module.exports = router;
