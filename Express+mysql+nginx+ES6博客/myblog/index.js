@@ -11,7 +11,8 @@ var session = require('express-session');
 var MySQLStore = require('express-mysql-session')(session);
 var flash = require('connect-flash');
 var prdConfig = require('./config/production.js');
-var devConfig = require('./config/default.js');
+var defConfig = require('./config/default.js');
+var devConfig = require('./config/development.js');
 var routes = require('./routes');
 var pkg = require('./package');
 var winston = require('winston');
@@ -20,17 +21,19 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 
-var config = {};
+var config;
 if (process.env.NODE_ENV == 'development') {
     config = devConfig;
 } else if (process.env.NODE_ENV == 'production') {
     config = prdConfig;
+} else if (process.env.NODE_ENV == 'default') {
+    config = defConfig;
 }
 
 var app = express();
 
 var httpServer = http.createServer(app);
-if (config.devEnv) {
+if (config.sslModel) {
     var privateKey = fs.readFileSync('ssl/private.pem', 'utf8');
     var certificate = fs.readFileSync('ssl/file.crt', 'utf8');
     var credentials = { key: privateKey, cert: certificate };
@@ -45,7 +48,7 @@ app.set('view engine', 'ejs');
 if (config.devEnv) {
     app.use(express.static(path.join(__dirname, 'public')));
 }
-if (true || config.devEnv) {
+if (config.devEnv && config.sslModel) {
     const NODE_ENV = process.env.NODE_ENV;
     console.log(NODE_ENV + "TEST");
     console.log('process.env==========', JSON.stringify(config) + "hehehe");
@@ -145,7 +148,11 @@ if (module.parent) {
 } else {
     httpServer.listen(port, function() {
         if (config.devEnv) {
-            console.log('HTTPS Server is running on: https://localhost:%s', port);
+            if (config.sslModel) {
+                console.log('HTTPS Server is running on: https://localhost:%s', port);
+            } else {
+                console.log('HTTPS Server is running on: http://localhost:%s', port);
+            }
         } else {
             console.log('HTTPS Server is running on: http://localhost:%s', port);
         }

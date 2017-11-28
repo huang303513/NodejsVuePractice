@@ -1,13 +1,7 @@
 let mysql = require('mysql');
-let prdConfig = require('../config/production.js');
-let devConfig = require('../config/default.js');
+let config = require('../config/production.js');
 
-let config = {};
-if (process.env.NODE_ENV == 'development') {
-    config = devConfig;
-} else if (process.env.NODE_ENV == 'production') {
-    config = prdConfig;
-}
+
 let pool = mysql.createPool(config.dbConfig);
 /**
  * sql, SqlParams  参数只可能是一个或者两个

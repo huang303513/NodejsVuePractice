@@ -7,20 +7,21 @@
 
 let devConfig = {
     port: 443,
+    sslModel: true,
     session: {
         secret: 'session',
         key: 'session',
         maxAge: 2592000
     },
     dbConfig: {
-        connectionLimit : 30,
+        connectionLimit: 30,
         host: '47.96.6.227',
         user: 'huang303513',
         password: 'huang303513',
         port: '3306',
         database: 'myblog'
     },
-    devEnv:true
+    devEnv: true
 };
 
 module.exports = devConfig;
