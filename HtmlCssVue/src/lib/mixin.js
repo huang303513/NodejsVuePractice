@@ -20,6 +20,12 @@ let mixin = {
             this.$root.loadingOptions = {
                 loading: false
             }
+        },
+        showAlert(){
+            this.$root.alertOptions.show = true;
+        },
+        hiddenAlert(){
+            this.$root.alertOptions.show = false;
         }
     }
 };

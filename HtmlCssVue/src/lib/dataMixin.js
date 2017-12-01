@@ -8,6 +8,12 @@ let mixin = {
         },
         initInfo() {
             this.$root.trainQuery = this.getTrainQuery();
+            this.$root.alertOptions = {
+                show:false,
+                title:"提示",
+                message:"弹框",
+                butttonTitle:"确定"
+            };
             console.log("进入新页面");
         },
         getTrainQuery(key) {
