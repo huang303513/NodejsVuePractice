@@ -1,14 +1,9 @@
 @import 'define';
-
-#cm-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+#cm-header {
     height: @headerHeight;
-    background-color:@blue;
+    background-color: @blue;
     color: @white;
-    .cm-page-title{
+    .cm-page-title {
         line-height: @headerHeight;
         font-size: 18px;
         text-align: center;
@@ -18,40 +13,36 @@
     }
 }
 
-.cm-header-icon{
+.cm-header-icon {
     width: @headerHeight;
     height: @headerHeight;
     display: inline-block;
     text-align: center;
     // background-color: red;
 }
-.cm-header-btn{
-    // width: @headerHeight;
-    // height: @headerHeight;
+
+.cm-header-btn {
     position: fixed;
     display: none;
     padding: 0 10px;
     cursor: pointer;
-    // text-align: center;
 }
-.icon-back{
-    line-height: 2.2rem;
-    // background-color: red;
-    &::before{
-        // content: "";
-        // display: inline-block;
-        // vertical-align: middle;
+
+.icon-back {
+    line-height: @headerHeight;
+    // background-color: green;
+    &::before {
         .disido;
         width: .8rem;
         height: .8rem;
         border-left: 2px solid #fff;
         border-bottom: 2px solid #fff;
         .rotating;
-        // transform: rotate(45deg);
         box-sizing: border-box;
     }
 }
-.test{
+
+.test {
     width: 100%;
     text-align: center;
 }

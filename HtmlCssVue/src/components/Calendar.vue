@@ -1,9 +1,9 @@
 <template>
     <div v-show="show" class="calendar">
         <ul class="cui_cldweek">
-            <p class="tip_top">当前车票预售期为30天，您可以预约抢票，开售自动抢</p>
+            <li class="tip_top">当前车票预售期为30天，您可以预约抢票，开售自动抢</li>
         </ul>
-        <ul class="cui_cldweek">
+        <ul class="cui_cldweek1">
             <li v-for="week in weekDayArr" v-text="week">
             </li>
         </ul>

@@ -1,6 +1,5 @@
 @import 'define';
-
-.indev-view{
+.indev-view {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -8,7 +7,7 @@
 }
 
 .train-index {
-    background-color:@white;
+    background-color: @white;
     padding: .5rem 1rem;
 }
 
@@ -16,13 +15,13 @@
     background: @white;
     font-size: 1.1rem;
     overflow: hidden;
-    position: relative; // background-color: green;
+    position: relative;
     li {
         line-height: 2.75rem;
         height: 2.75rem;
         border-bottom-width: 0;
     }
-    dd{
+    dd {
         height: 2.7rem;
     }
     .train-station {
@@ -36,7 +35,7 @@
             right: 0;
         }
         .to.exchange {
-            transform: translate3d(-163%, 0, 0);//为啥是142.5，如何计算出来，此处不解。
+            transform: translate3d(-163%, 0, 0); //为啥是142.5，如何计算出来，此处不解。
             text-align: left;
         }
         .from.exchange {
@@ -74,19 +73,19 @@
             }
         }
     }
-    .train-time{
+    .train-time {
         .border-line-grey;
         border-bottom-width: 1px;
-        dd{
+        dd {
             // padding: 0 .25rem;
-            span{
+            span {
                 .fr;
                 font-size: .9rem;
                 color: @orage;
                 margin-right: .75rem;
             }
         }
-        &::after{
+        &::after {
             width: .4rem;
             height: .4rem;
             position: absolute;
@@ -95,29 +94,29 @@
             .rotating();
             .pseudo;
             right: .2rem;
-            top:50%;
+            top: 50%;
             margin-top: -.25rem;
         }
     }
-    .train-type{
+    .train-type {
         // padding: 0 5px;
         display: flex;
         justify-content: space-between;
         -webkit-box-pack: justify;
         border-bottom-width: 1px!important;
         .border-line-grey;
-        .train-type-item{
+        .train-type-item {
             display: flex;
             align-items: center;
-            span{
+            span {
                 font-size: .9rem;
             }
-            .train-type-checkbox{
+            .train-type-checkbox {
                 // background-color: green;
                 margin-left: .4rem;
                 display: inline-block;
             }
-            .train-type-checkbox-selected{
+            .train-type-checkbox-selected {
                 width: .9rem;
                 height: .8rem;
                 border: 0;
@@ -126,7 +125,7 @@
                 background-size: 10rem;
                 background-position: -4.05rem -2.1rem;
             }
-            .train-type-checkbox-unselected{
+            .train-type-checkbox-unselected {
                 width: .7rem;
                 height: .7rem;
                 border: 1px solid #777777;
@@ -136,9 +135,9 @@
     }
 }
 
-.train-index .train-index-btnbox{
+.train-index .train-index-btnbox {
     margin-top: .75rem;
-    .g_btn_s{
+    .g_btn_s {
         color: @white;
         font-size: 18px;
         width: 100%;
@@ -153,16 +152,14 @@
     }
 }
 
-.indev-view .train-index-bnav{
+.indev-view .train-index-bnav {
     height: 2.75rem;
-    position: fixed;
-    left: 0;
+    position: absolute;
+    width: 100%;
     bottom: 0;
-    right: 0;
     display: flex;
-    // background-color: green;
     background-color: @white;
-    li{
+    li {
         -webkit-box-flex: 1;
         flex: 1;
         position: relative;
@@ -170,7 +167,7 @@
         color: @txt1;
         line-height: 1.1rem;
         font-size: .55rem;
-        i{
+        i {
             width: 1.25rem;
             height: 1.25rem;
             display: block;
@@ -178,7 +175,7 @@
             background: url('//pic.c-ctrip.com/train/h5/train/train-index-nav.png') no-repeat;
             background-size: 5rem 2.5rem;
         }
-        .icon-qiangpiao{
+        .icon-qiangpiao {
             background-position: 0 0;
         }
         .icon-seat {
@@ -190,7 +187,7 @@
         .icon-order {
             background-position: -3.75rem 0;
         }
-        .tag-chunyun{
+        .tag-chunyun {
             width: 1.55rem;
             height: .7rem;
             .icon-index;
@@ -208,16 +205,16 @@
     }
 }
 
-.indev-view .train-list{
+.indev-view .train-list {
     margin-top: .5rem;
     background: @white;
     line-height: 2.75rem;
-    li{
+    li {
         margin-left: .75rem;
         padding-right: .5rem!important;
         line-height: 2.75rem!important;
-        position: relative;//因为有after,所以这个属性必须设置
-        .icon-eurail{
+        position: relative; //因为有after,所以这个属性必须设置
+        .icon-eurail {
             width: 1rem;
             height: 1.25rem;
             background: url(http://images3.c-ctrip.com/train/h5/icon_eurail.png);
@@ -226,7 +223,7 @@
             vertical-align: middle;
             margin: -.1rem .4rem 0;
         }
-        &::after{
+        &::after {
             width: 0.3rem;
             height: .3rem;
             border-top: 1px solid @txt2;

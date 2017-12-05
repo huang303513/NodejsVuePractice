@@ -1,50 +1,53 @@
-
 @import 'define';
-
-.calendar{
-    .cui_cldweek{
+.calendar {
+    .cui_cldweek {
         width: 100%;
         height: auto;
         overflow: hidden;
         font: 400 12px/24px verdana;
         border-bottom: 1px solid #c8c8c8;
-        .tip_top{
+        .tip_top {
+            text-align: center;
             color: #ce7928;
             background-color: #ffeebc;
-            padding-left: 10px;
             height: 40px;
-            font: .7rem/1.5 Arial,Lucida Grande,Verdana,Microsoft Yahei,hei;
+            font: .7rem/1.5 Arial, Lucida Grande, Verdana, Microsoft Yahei, hei;
             line-height: 40px;
         }
     }
-    .cui_cldweek{
+    .cui_cldweek1 {
         width: 100%;
         height: auto;
         overflow: hidden;
         font: 400 12px/24px verdana;
         border-bottom: 1px solid #c8c8c8;
         background: #f7f7f7;
-        li:first-child,li:last-child{//最左边和最右边
+        li:first-child,
+        li:last-child {
+            //最左边和最右边
             width: 15%;
             color: #ff902d;
         }
-        li{//中间
+        li {
+            //中间
             float: left;
             text-align: center;
             width: 14%;
         }
     }
-    .cui_cldunit{
-        .cui_cldmonth{//月份
+    .cui_cldunit {
+        .cui_cldmonth {
+            //月份
             height: 40px;
             text-align: center;
             font: 400 16px/50px verdana;
             background: #fff;
         }
-        .cui_cld_daybox{
+        .cui_cld_daybox {
             overflow: hidden;
             background: #fff;
-            li{//每一个节点
+            li {
+                //每一个节点
                 float: left;
                 width: 14%;
                 height: 40px;
@@ -53,31 +56,35 @@
                 overflow: hidden;
                 text-align: center;
             }
-            li.cui_cld_daypass{//不能选择的
+            li.cui_cld_daypass {
+                //不能选择的
                 color: #cfcdcf!important;
             }
-            li:nth-of-type(7n),li:nth-of-type(7n+1){//最左边和最右边
+            li:nth-of-type(7n),
+            li:nth-of-type(7n+1) {
+                //最左边和最右边
                 width: 15%;
                 color: #ff902d;
             }
-            .cui_cld_daycrt{//当前选中
+            .cui_cld_daycrt {
+                //当前选中
                 background: #06a2d0;
                 color: #fff!important;
             }
-            .cui_cld_day_havetxt{
-                em{
+            .cui_cld_day_havetxt {
+                em {
                     display: block;
                     line-height: 20px;
                     font-size: 12px;
-                }//日期
-                i{
+                } //日期
+                i {
                     display: block;
                     line-height: 15px;
                     font-size: 11px;
-                }//预约
-                .prejl{
+                } //预约
+                .prejl {
                     color: #ff902d;
-                }//预约颜色
+                } //预约颜色
             }
         }
     }

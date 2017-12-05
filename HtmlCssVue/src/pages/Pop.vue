@@ -53,22 +53,18 @@
             clickItem(item) {
                 this[item.action]();
                 if (item.action == 'showLoading') {
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         this.hiddenLoading();
-                    },3000);
+                    }, 3000);
                 }
             },
             showConfirm() {
-                
             },
             showToast() {
-                
             },
             showDialog() {
-                
             },
             showShare() {
-                
             }
         },
         beforeRouteEnter(to, from, next) {
