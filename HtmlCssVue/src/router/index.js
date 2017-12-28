@@ -21,6 +21,14 @@ const router = new Router({
         },
         meta: { name: "Pop" },
         hash: "Pop"
+    }, {
+        path: '/jsonp',
+        name: 'jsonp',
+        component: function(resolve) {
+            require(['@/pages/JSONP.vue'], resolve);
+        },
+        meta: { name: "Pop" },
+        hash: "Pop"
     }],
     mode: 'hash'
 });

@@ -40,6 +40,9 @@
 				<li>
 					<i class="icon-eurail"></i> 国际火车票
 				</li>
+				<li @click="jsonpTest()">
+					<i class="icon-eurail"></i> JSONP请求测试
+				</li>
 			</ul>
 			<ul class="train-index-bnav">
 				<li>
@@ -113,7 +116,7 @@
 					self.showLoading();
 					setTimeout(function() {
 						self.hiddenLoading();
-					}, 4000);
+					}, 2000);
 					console.log("from" + JSON.stringify(from));
 					//自定义返回事件
 				}
@@ -152,6 +155,9 @@
 			},
 			jumpPop() {
 				router.push('/pop');
+			},
+			jsonpTest(){
+				router.push('/jsonp');
 			}
 		},
 		watch: {
