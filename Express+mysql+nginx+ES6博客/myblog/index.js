@@ -45,9 +45,9 @@ app.set('views', path.join(__dirname, 'views'));
 // 设置模板引擎为 ejs
 app.set('view engine', 'ejs');
 // 设置静态文件目录,如果是生产环境，就不用设置了，通过nginx设置。
-if (config.devEnv) {
+// if (config.devEnv) {
     app.use(express.static(path.join(__dirname, 'public')));
-}
+// }
 if (config.devEnv && config.sslModel) {
     const NODE_ENV = process.env.NODE_ENV;
     console.log(NODE_ENV + "TEST");
@@ -72,10 +72,10 @@ app.use(session({
 // flash 中间价，用来显示通知
 app.use(flash());
 
-let uploadDir = "/usr/local/webserver/nginx/static/img";
-if (config.devEnv) {
+// let uploadDir = "/usr/local/webserver/nginx/static/img";
+// if (config.devEnv) {
     uploadDir = path.join(__dirname, 'public/img');
-}
+// }
 // 处理表单及文件上传的中间件
 app.use(require('express-formidable')({
     uploadDir: uploadDir,
