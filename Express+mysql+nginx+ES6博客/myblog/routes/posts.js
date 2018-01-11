@@ -16,6 +16,10 @@ let checkLogin = require('../middlewares/check').checkLogin;
 router.get('/', function(req, res, next) {
     let authorId = req.query.author;
     PostModel.getPosts(authorId).then(posts => {
+        posts.forEach(function(post,index) {
+             post.content = post.content.replace("<script>","script");
+             post.content = post.content.replace("<iframe>","iframe");
+        });
         res.render('posts', {
             posts: posts
         });
@@ -66,6 +70,8 @@ router.get('/:postId', function(req, res, next) {
         PostModel.incPv(postId) //添加访问次数
     ]).then(result => {
         let post = result[0];
+         post.content = post.content.replace("<script>","script");
+         post.content = post.content.replace("<iframe>","iframe");
         let comments = result[1];
         if (!post) {
             throw new Error('该文章不存在');
